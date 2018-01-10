@@ -13,21 +13,22 @@ public class Game {
 
     Player checkWinner(){
         boolean noWinner = true;
-
+        Player winner = null;
         while(noWinner){
 
             if (player1.handValue() > player2.handValue()) {
 
-                return player1;
+                winner = player1;
+                noWinner = false;
             } else if (player1.handValue() < player2.handValue()){
 
-                return player2;
+                winner = player2;
+                noWinner = false;
             } else {
                 dealer.deal(player1);
                 dealer.deal(player2);//logically bad change this!
             }
         }
-
-
+        return winner;
     }
 }
